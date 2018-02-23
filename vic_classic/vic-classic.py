@@ -10,8 +10,14 @@ import util
 # USER SPECIFIC SECTION
 #======================================================
 controlFileName = "SAC.txt"
-appInputFiles = ["sample_model/input/params/sac_params.HHWM8.txt"]
-appInputTmplts = ["sac_params.HHWM8.txt.Tmplt"]
+
+appInputFiles = ["sample_model/input/params/sac_params.HHWM8.txt",
+                 "sample_model/input/params/snow17_params.HHWM8.txt",
+                 "sample_model/input/params/uh_params.HHWM8.txt"]
+
+appInputTmplts = ["sac_params.HHWM8.txt.tmplt",
+                  "snow17_params.HHWM8.txt.tmplt",
+                  "uh_params.HHWM8.txt.tmplt",]
 
 #######################################################
 # FUNCTION: GENERATE MODEL INPUT FILE
@@ -45,9 +51,9 @@ def genAppInputFile(inputData, appTmpltFiles, appInputFiles, nInputs, inputNames
 
 #######################################################
 # FUNCTION: RUN MODEL
-#====================================================== 
+#======================================================
 def runApplication():
-    os.chdir("sample_model/run/") 
+    os.chdir("sample_model/run/")
     os.system("csh run_Snow17SacUH.csh")
     os.chdir("../..")
     return
